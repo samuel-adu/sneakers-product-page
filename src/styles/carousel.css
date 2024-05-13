@@ -4,6 +4,7 @@
 
 .carousel-item > img {
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .thumbnails {
@@ -15,7 +16,7 @@
 }
 
 .carousel-nav {
-  padding: 13px;
+  padding: 10px 14px;
   border-radius: 50%;
   background-color: hsl(0, 0%, 100%);
   position: absolute;
@@ -43,5 +44,6 @@
 
   .thumbnails img {
     border-radius: 0.5rem;
+    cursor: pointer;
   }
 }

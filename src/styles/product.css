@@ -27,6 +27,39 @@
   margin-bottom: 2rem;
 }
 
+.price-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.new-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-family: 700;
+}
+
+.discount {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--clr-primary-400);
+  background-color: var(--clr-primary-100);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  font-weight: 700;
+  color: var(--clr-secondary-200);
+}
+
 .add-to-cart-tab {
   display: flex;
   flex-direction: column;
@@ -39,6 +72,12 @@
     align-items: center;
     justify-content: center;
     gap: 7.5rem;
+    width: 90%;
+    margin: 5rem auto;
+  }
+
+  .product-name {
+    font-size: 3rem;
   }
 
   .add-to-cart-tab {
