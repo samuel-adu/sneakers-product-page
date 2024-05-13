@@ -1,4 +1,4 @@
-import '../styles/preview.css';
+import '../styles/carousel.css';
 import product1 from '../assets/images/image-product-1.jpg';
 import product1thumbnail from '../assets/images/image-product-1-thumbnail.jpg';
 import product2thumbnail from '../assets/images/image-product-2-thumbnail.jpg';
@@ -7,15 +7,19 @@ import product4thumbnail from '../assets/images/image-product-4-thumbnail.jpg';
 import iconPrev from '../assets/icons/icon-previous.svg';
 import iconNext from '../assets/icons/icon-next.svg';
 
-function Preview() {
+function Carousel() {
   return (
     <div className="product-preview">
       <div className="carousel">
         <div className="carousel-item">
           <img src={product1} alt="" />
         </div>
-        <img src={iconNext} alt="" className="carousel-nav carousel-next" />
-        <img src={iconPrev} alt="" className="carousel-nav carousel-prev" />
+        <button className="carousel-nav carousel-next">
+          <img src={iconNext} alt="" />
+        </button>
+        <button className="carousel-nav carousel-prev">
+          <img src={iconPrev} alt="" />
+        </button>
       </div>
 
       <div className="thumbnails">
@@ -28,4 +32,4 @@ function Preview() {
   );
 }
 
-export default Preview;
+export default Carousel;
