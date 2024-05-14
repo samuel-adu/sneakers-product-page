@@ -17,7 +17,7 @@ function Header({ count }: HeaderProps) {
     <header>
       <div className="container">
         <nav className="nav">
-          <div>
+          <div className="">
             <button
               className="menu-btn"
               onClick={() => setMenuOpen((prevMenuOpen) => !prevMenuOpen)}

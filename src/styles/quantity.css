@@ -2,8 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem;
   background-color: hsl(223, 64%, 98%);
   border-radius: 0.5rem;
   width: 100%;
+}
+
+.plus-btn,
+.minus-btn {
+  padding: 1rem;
 }

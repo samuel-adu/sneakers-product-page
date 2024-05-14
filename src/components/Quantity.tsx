@@ -20,13 +20,13 @@ function Quantity({ count, setCount }: QuantityProps) {
 
   return (
     <div className="quantity-tab">
-      <button onClick={decrement}>
+      <button onClick={decrement} className="plus-btn">
         <img src={minus} alt="" />
       </button>
 
-      <p>{count}</p>
+      <p className="count">{count}</p>
 
-      <button onClick={increment}>
+      <button onClick={increment} className="minus-btn">
         <img src={plus} alt="" />
       </button>
     </div>
