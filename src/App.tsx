@@ -1,15 +1,13 @@
 import Header from './components/Header';
-
-import Product from './components/Product';
-import { useState } from 'react';
+import { CartContextProvider } from './context/CartContext';
+import Product from './pages/ProductPage';
 
 function App() {
-  const [quantity, setQuantity] = useState<number>(0);
   return (
-    <>
-      <Header count={quantity} />
-      <Product count={quantity} setCount={setQuantity} />
-    </>
+    <CartContextProvider>
+      <Header />
+      <Product />
+    </CartContextProvider>
   );
 }
 

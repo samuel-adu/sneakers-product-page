@@ -1,51 +1,59 @@
+import '../styles/header.css';
 import { useState } from 'react';
 import logo from '../assets/icons/logo.svg';
 import hamburger from '../assets/icons/icon-menu.svg';
 import menuClose from '../assets/icons/icon-close.svg';
-import cart from '../assets/icons/icon-cart.svg';
 import avatar from '../assets/images/image-avatar.png';
-import '../styles/header.css';
+import Cart from '../components/Cart';
 
-type HeaderProps = {
-  count: number;
-};
-
-function Header({ count }: HeaderProps) {
+function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header>
+    <header className="header">
       <div className="container">
         <nav className="nav">
-          <div className="">
-            <button
-              className="menu-btn"
-              onClick={() => setMenuOpen((prevMenuOpen) => !prevMenuOpen)}
-            >
-              {menuOpen ? (
-                <img src={menuClose} alt="menu close button" />
-              ) : (
-                <img src={hamburger} alt="menu open button" />
-              )}
-            </button>
-            <img src={logo} alt="sneaker logo" className="logo" />
-          </div>
+          <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? (
+              <img src={menuClose} alt="menu close button" />
+            ) : (
+              <img src={hamburger} alt="menu open button" />
+            )}
+          </button>
 
-          <ul className="nav-list">
-            <li className="nav-item">Collections</li>
-            <li className="nav-item">Men</li>
-            <li className="nav-item">Women</li>
-            <li className="nav-item">About</li>
-            <li className="nav-item">Contact</li>
+          <img src={logo} alt="sneaker logo" className="logo" />
+
+          <ul className={`nav__list ${menuOpen ? 'nav--open' : ''}`}>
+            <li className="nav__item">
+              <a className="nav__link" href="#">
+                Collections
+              </a>
+            </li>
+            <li className="nav__item">
+              <a className="nav__link" href="#">
+                Men
+              </a>
+            </li>
+            <li className="nav__item">
+              <a className="nav__link" href="#">
+                Women
+              </a>
+            </li>
+            <li className="nav__item">
+              <a className="nav__link" href="#">
+                About
+              </a>
+            </li>
+            <li className="nav__item">
+              <a className="nav__link" href="#">
+                Contact
+              </a>
+            </li>
           </ul>
 
-          <div>
-            <div className="cart-icon-container">
-              <img src={cart} alt="cart" />
-              {count < 1 ? '' : <span className="order-count">{count}</span>}
-            </div>
-            <img src={avatar} alt="avatar" className="avatar" />
-          </div>
+          <Cart />
+
+          <img src={avatar} alt="avatar" className="avatar" />
         </nav>
       </div>
     </header>

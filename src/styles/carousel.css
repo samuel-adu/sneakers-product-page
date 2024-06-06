@@ -2,7 +2,8 @@
   margin-bottom: 1rem;
 }
 
-.carousel-item > img {
+.carousel-item,
+.carousel-img {
   border-radius: 0.5rem;
   cursor: pointer;
 }
