@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+*,
+::before,
+::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -102,75 +104,7 @@
 body {
   margin: 0;
   padding-top: 100px;
-}
-
-.product-page {
-  margin-bottom: 5rem;
-  position: relative;
-}
-
-.company-name {
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: var(--clr-primary-400);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.product-name {
-  font-size: 2rem;
-  text-transform: capitalize;
   color: var(--clr-secondary-700);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-
-.product-desc {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--clr-secondary-400);
-  margin-bottom: 2rem;
-}
-
-.price-tab {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.new-price {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.price {
-  font-size: 2rem;
-  font-family: 700;
-}
-
-.discount {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--clr-primary-400);
-  background-color: var(--clr-primary-100);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-}
-
-.old-price {
-  text-decoration: line-through;
-  font-weight: 700;
-  color: var(--clr-secondary-200);
-}
-
-.add-to-cart-tab {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 }
 
 .btn--primary {
@@ -193,44 +127,9 @@ body {
   color: var(--clr-black);
 }
 
-.quantity-tab {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem;
-  background-color: hsl(223, 64%, 98%);
-  border-radius: 0.5rem;
-  width: 100%;
-}
-
-.plus-btn,
-.minus-btn {
-  padding: 1rem;
-}
-
-@media (min-width: 1024px) {
-  .product-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7.5rem;
-    width: 90%;
-    margin: 5rem auto;
-  }
-
-  .product-name {
-    font-size: 3rem;
-  }
-
-  .add-to-cart-tab {
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-}
-
 @media (min-width: 1024px) {
   .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 }

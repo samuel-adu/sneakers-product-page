@@ -1,6 +1,7 @@
 import cartIcon from '../assets/icons/icon-cart.svg';
 import minus from '../assets/icons/icon-minus.svg';
 import plus from '../assets/icons/icon-plus.svg';
+import '../styles/productPage.css';
 import ProductPreview from '../components/ProductPreview';
 import { useCartContext } from '../hooks/useCartContext';
 import { useState } from 'react';
