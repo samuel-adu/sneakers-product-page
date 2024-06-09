@@ -46,6 +46,12 @@
   width: 35px;
 }
 
+.avatar:hover,
+.avatar:focus {
+  border: 2px solid var(--clr-primary-400);
+  border-radius: 50%;
+}
+
 .nav-icon {
   display: flex;
   align-items: center;
@@ -58,22 +64,6 @@
   border: 0;
   position: relative;
   z-index: 100;
-}
-
-.cart-icon-container {
-  position: relative;
-}
-
-.order-count {
-  font-size: 10px;
-  font-weight: 700;
-  background-color: hsl(26, 100%, 55%);
-  color: hsl(0, 0%, 100%);
-  padding-inline: 0.25rem;
-  border-radius: 0.5rem;
-  position: absolute;
-  top: 0;
-  left: 50%;
 }
 
 @media (min-width: 1024px) {

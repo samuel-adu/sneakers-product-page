@@ -15,24 +15,26 @@
 .modal {
   width: 360px;
   background-color: var(--clr-white);
-  opacity: 1;
+  border-radius: 1rem;
 }
 
 .modal-header {
   padding: 1.5rem;
-  border-bottom: 1px solid var(--clr-black);
+  border-bottom: 1px solid var(--clr-secondary-200);
+  margin-bottom: 1.5rem;
 }
 
 .modal-main {
-  padding: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
+  padding-inline: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .modal-footer {
-  padding: 1.5rem;
+  padding-inline: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Cart */
@@ -49,4 +51,9 @@
   border-radius: 8px;
   position: absolute;
   top: 0;
+}
+
+.total-cost {
+  color: var(--clr-secondary-700);
+  font-weight: 700;
 }

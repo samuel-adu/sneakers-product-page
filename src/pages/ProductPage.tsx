@@ -1,19 +1,44 @@
-import cartIcon from '../assets/icons/icon-cart.svg';
-import minus from '../assets/icons/icon-minus.svg';
-import plus from '../assets/icons/icon-plus.svg';
+import { FaCartShopping, FaMinus, FaPlus } from 'react-icons/fa6';
 import '../styles/productPage.css';
-import ProductPreview from '../components/ProductPreview';
 import { useCartContext } from '../hooks/useCartContext';
 import { useState } from 'react';
+import Lightbox from '@/components/LightBox';
+import ImageSlider from '@/components/ImageSlider';
+
+import Product1Image from '../assets/images/image-product-1.jpg';
+import Product2Image from '../assets/images/image-product-2.jpg';
+import Product3Image from '../assets/images/image-product-3.jpg';
+import Product4Image from '../assets/images/image-product-4.jpg';
+
+import Product1Thumbnail from '../assets/images/image-product-1-thumbnail.jpg';
+import Product2Thumbnail from '../assets/images/image-product-2-thumbnail.jpg';
+import Product3Thumbnail from '../assets/images/image-product-3-thumbnail.jpg';
+import Product4Thumbnail from '../assets/images/image-product-4-thumbnail.jpg';
+
+const product = {
+  name: 'Fall Limited Edition Sneakers',
+  price: 125,
+  thumbnail: Product1Thumbnail,
+  images: [
+    { image: Product1Image, thumbnail: Product1Thumbnail, alt: 'Product1' },
+    { image: Product2Image, thumbnail: Product2Thumbnail, alt: 'Product2' },
+    { image: Product3Image, thumbnail: Product3Thumbnail, alt: 'Product3' },
+    { image: Product4Image, thumbnail: Product4Thumbnail, alt: 'Product4' },
+  ],
+};
 
 function ProductPage() {
   const { addToCart } = useCartContext();
   const [quantity, setQuantity] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const product = {
-    name: 'Fall Limited Edition Sneakers',
-    price: 125,
-  };
+  function openLightbox() {
+    setLightboxOpen(true);
+  }
+
+  function closeLightbox() {
+    setLightboxOpen(false);
+  }
 
   function increaseQuantity() {
     setQuantity(quantity + 1);
@@ -33,8 +58,39 @@ function ProductPage() {
     <main>
       <div className="container">
         <div className="product-page">
-          <ProductPreview />
-          <div>
+          <div className="product-preview">
+            <div className="lg:hidden">
+              <ImageSlider images={product.images} />
+            </div>
+
+            <div className="hidden lg:flex flex-col gap-6">
+              <img
+                src={Product1Image}
+                alt="fall limited edition sneakers"
+                className="rounded-lg"
+              />
+              <div className="gallery">
+                {product.images.map((item) => (
+                  <div className="gallery-overlay">
+                    <img
+                      onClick={() => openLightbox()}
+                      src={item.thumbnail}
+                      alt={item.alt}
+                      className="rounded-lg"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Lightbox
+              images={product.images}
+              isOpen={lightboxOpen}
+              onClose={closeLightbox}
+            />
+          </div>
+
+          <div className="product-details">
             <h1 className="company-name">sneaker company</h1>
             <h2 className="product-name">fall limited edition sneakers</h2>
             <p className="product-desc">
@@ -51,21 +107,27 @@ function ProductPage() {
               <p className="old-price">$250.00</p>
             </div>
 
-            <div className="add-to-cart-tab">
-              <div className="quantity-tab">
-                <button onClick={decreaseQuantity} className="plus-btn">
-                  <img src={minus} alt="" />
+            <div className="flex flex-col lg:flex-row gap-4 justify-between">
+              <div className="quantity-tab lg:w-2/5">
+                <button
+                  onClick={decreaseQuantity}
+                  className="btn btn--secondary"
+                >
+                  <FaMinus className="" />
                 </button>
 
-                <p className="count">{quantity}</p>
+                <p className="count text-xl">{quantity}</p>
 
-                <button onClick={increaseQuantity} className="minus-btn">
-                  <img src={plus} alt="" />
+                <button
+                  onClick={increaseQuantity}
+                  className="btn btn--secondary"
+                >
+                  <FaPlus className="" />
                 </button>
               </div>
 
-              <button onClick={handleClick} className="btn--primary">
-                <img src={cartIcon} alt="" className="" />
+              <button onClick={handleClick} className="btn btn--primary">
+                <FaCartShopping />
                 Add to cart
               </button>
             </div>

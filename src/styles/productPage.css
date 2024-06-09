@@ -62,25 +62,13 @@
   color: var(--clr-secondary-200);
 }
 
-.add-to-cart-tab {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
 .quantity-tab {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem;
   background-color: hsl(223, 64%, 98%);
   border-radius: 0.5rem;
-  width: 100%;
-}
-
-.plus-btn,
-.minus-btn {
-  padding: 1rem;
+  height: 56px;
 }
 
 @media (min-width: 1024px) {
@@ -91,6 +79,11 @@
     gap: 7.5rem;
     width: 90%;
     margin: 4rem auto 0;
+  }
+
+  .product-preview,
+  .product-details {
+    width: 50%;
   }
 
   .product-name {
