@@ -3,13 +3,13 @@ import '../styles/lightbox.css';
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
 import { IoClose } from 'react-icons/io5';
 
-type LightBoxProps = {
+type LightboxProps = {
   isOpen: boolean;
   onClose: () => void;
   images: { alt: string; image: string; thumbnail: string }[];
 };
 
-function Lightbox({ isOpen, onClose, images }: LightBoxProps) {
+function Lightbox({ isOpen, onClose, images }: LightboxProps) {
   const [imageIndex, setImageIndex] = useState(0);
 
   function goToPrevious() {

@@ -2,7 +2,7 @@ import { FaCartShopping, FaMinus, FaPlus } from 'react-icons/fa6';
 import '../styles/productPage.css';
 import { useCartContext } from '../hooks/useCartContext';
 import { useState } from 'react';
-import Lightbox from '@/components/LightBox';
+import Lightbox from '@/components/Lightbox';
 import ImageSlider from '@/components/ImageSlider';
 
 import Product1Image from '../assets/images/image-product-1.jpg';
