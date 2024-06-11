@@ -1,47 +1,49 @@
 .product-page {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 .company-name {
-  font-size: 1rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   color: var(--clr-primary-400);
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
 }
 
 .product-name {
-  font-size: 2rem;
+  font-size: 1.75rem;
   text-transform: capitalize;
   color: var(--clr-secondary-700);
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .product-desc {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--clr-secondary-400);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .price-tab {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .new-price {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 700;
 }
 
 .price {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-family: 700;
 }
 
@@ -56,14 +58,17 @@
 
 .old-price {
   text-decoration: line-through;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--clr-secondary-200);
 }
 
-.add-to-cart-tab {
+.quantity-tab {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(223, 64%, 98%);
+  border-radius: 0.5rem;
+  height: 56px;
 }
 
 @media (min-width: 1024px) {
@@ -73,11 +78,20 @@
     justify-content: center;
     gap: 7.5rem;
     width: 90%;
-    margin: 5rem auto;
+    margin: 4rem auto 0;
+  }
+
+  .product-preview,
+  .product-details {
+    width: 50%;
   }
 
   .product-name {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .product-desc {
+    font-size: 1rem;
   }
 
   .add-to-cart-tab {
