@@ -4,9 +4,10 @@ import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
 
 type ImageSliderProps = {
   images: { alt: string; image: string; thumbnail: string }[];
+  openLightbox: () => void;
 };
 
-function ImageSlider({ images }: ImageSliderProps) {
+function ImageSlider({ images, openLightbox }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   function goToPrevious() {
@@ -34,15 +35,30 @@ function ImageSlider({ images }: ImageSliderProps) {
               src={item.image}
               alt={item.alt}
               className="slider-image rounded-lg"
+              onClick={openLightbox}
             />
           </div>
         ))}
-        <button className="left-arrow" onClick={goToPrevious}>
+        <button className="left-arrow lg:hidden" onClick={goToPrevious}>
           <PiCaretLeftBold />
         </button>
-        <button className="right-arrow" onClick={goToNext}>
+        <button className="right-arrow lg:hidden" onClick={goToNext}>
           <PiCaretRightBold />
         </button>
+      </div>
+      <div className="hidden lg:flex flex-col gap-6">
+        <div className="gallery">
+          {images.map((item, index) => (
+            <div className="gallery-overlay">
+              <img
+                onClick={() => setCurrentIndex(index)}
+                src={item.thumbnail}
+                alt={item.alt}
+                className="rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

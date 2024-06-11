@@ -59,28 +59,11 @@ function ProductPage() {
       <div className="container">
         <div className="product-page">
           <div className="product-preview">
-            <div className="lg:hidden">
-              <ImageSlider images={product.images} />
-            </div>
-
-            <div className="hidden lg:flex flex-col gap-6">
-              <img
-                src={Product1Image}
-                alt="fall limited edition sneakers"
-                className="rounded-lg"
+            <div className="">
+              <ImageSlider
+                images={product.images}
+                openLightbox={openLightbox}
               />
-              <div className="gallery">
-                {product.images.map((item) => (
-                  <div className="gallery-overlay">
-                    <img
-                      onClick={() => openLightbox()}
-                      src={item.thumbnail}
-                      alt={item.alt}
-                      className="rounded-lg"
-                    />
-                  </div>
-                ))}
-              </div>
             </div>
 
             <Lightbox
