@@ -49,7 +49,7 @@ function ImageSlider({ images, openLightbox }: ImageSliderProps) {
       <div className="hidden lg:flex flex-col gap-6">
         <div className="gallery">
           {images.map((item, index) => (
-            <div className="gallery-overlay">
+            <div className="gallery-overlay" key={index}>
               <img
                 onClick={() => setCurrentIndex(index)}
                 src={item.thumbnail}

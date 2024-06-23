@@ -9,13 +9,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 100;
 }
 
-.modal {
+.modal-content {
   width: 360px;
   background-color: var(--clr-white);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
 }
 
 .modal-header {
@@ -32,12 +33,11 @@
   margin-bottom: 1.5rem;
 }
 
-.modal-footer {
-  padding-inline: 1.5rem;
+/* Cart */
+.cart-list {
   margin-bottom: 1.5rem;
 }
 
-/* Cart */
 .cart-icon-container {
   position: relative;
   padding: 8px 8px 0;
