@@ -12,7 +12,9 @@ function Cart() {
 
   if (cartItems.length < 1) {
     return (
-      <p className="font-bold base-text text-center">Your cart is empty.</p>
+      <div className="cart-main">
+        <p className="font-bold base-text text-center">Your cart is empty.</p>
+      </div>
     );
   }
 
