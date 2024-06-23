@@ -4,28 +4,7 @@ import { useCartContext } from '../hooks/useCartContext';
 import { useState } from 'react';
 import Lightbox from '@/components/Lightbox';
 import ImageSlider from '@/components/ImageSlider';
-
-import Product1Image from '../assets/images/image-product-1.jpg';
-import Product2Image from '../assets/images/image-product-2.jpg';
-import Product3Image from '../assets/images/image-product-3.jpg';
-import Product4Image from '../assets/images/image-product-4.jpg';
-
-import Product1Thumbnail from '../assets/images/image-product-1-thumbnail.jpg';
-import Product2Thumbnail from '../assets/images/image-product-2-thumbnail.jpg';
-import Product3Thumbnail from '../assets/images/image-product-3-thumbnail.jpg';
-import Product4Thumbnail from '../assets/images/image-product-4-thumbnail.jpg';
-
-const product = {
-  name: 'Fall Limited Edition Sneakers',
-  price: 125,
-  thumbnail: Product1Thumbnail,
-  images: [
-    { image: Product1Image, thumbnail: Product1Thumbnail, alt: 'Product1' },
-    { image: Product2Image, thumbnail: Product2Thumbnail, alt: 'Product2' },
-    { image: Product3Image, thumbnail: Product3Thumbnail, alt: 'Product3' },
-    { image: Product4Image, thumbnail: Product4Thumbnail, alt: 'Product4' },
-  ],
-};
+import { product } from '../data';
 
 function ProductPage() {
   const { addToCart } = useCartContext();
@@ -40,18 +19,16 @@ function ProductPage() {
     setLightboxOpen(false);
   }
 
-  function increaseQuantity() {
-    setQuantity(quantity + 1);
-  }
-
-  function decreaseQuantity() {
+  function handleAddToCart(quantity: number) {
     if (quantity > 0) {
-      setQuantity(quantity - 1);
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.cartImage,
+        quantity: quantity,
+      });
     }
-  }
-
-  function handleClick() {
-    addToCart(product, quantity);
   }
 
   return (
@@ -93,7 +70,10 @@ function ProductPage() {
             <div className="flex flex-col lg:flex-row gap-4 justify-between">
               <div className="quantity-tab lg:w-2/5">
                 <button
-                  onClick={decreaseQuantity}
+                  onClick={() =>
+                    quantity > 0 &&
+                    setQuantity((prevQuanity) => prevQuanity - 1)
+                  }
                   className="btn btn--secondary"
                 >
                   <FaMinus className="" />
@@ -102,14 +82,17 @@ function ProductPage() {
                 <p className="count text-xl">{quantity}</p>
 
                 <button
-                  onClick={increaseQuantity}
+                  onClick={() => setQuantity((prevQuanity) => prevQuanity + 1)}
                   className="btn btn--secondary"
                 >
                   <FaPlus className="" />
                 </button>
               </div>
 
-              <button onClick={handleClick} className="btn btn--primary">
+              <button
+                onClick={() => handleAddToCart(quantity)}
+                className="btn btn--primary"
+              >
                 <FaCartShopping />
                 Add to cart
               </button>

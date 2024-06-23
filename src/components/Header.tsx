@@ -4,9 +4,15 @@ import logo from '../assets/icons/logo.svg';
 import hamburger from '../assets/icons/icon-menu.svg';
 import menuClose from '../assets/icons/icon-close.svg';
 import avatar from '../assets/images/image-avatar.png';
-import Cart from '../components/Cart';
+import { FaCartShopping } from 'react-icons/fa6';
 
-function Header() {
+type HeaderProps = {
+  showCartModal: boolean;
+  openCartModal: () => void;
+  closeCartModal: () => void;
+};
+
+function Header({ showCartModal, closeCartModal, openCartModal }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -51,7 +57,15 @@ function Header() {
             </li>
           </ul>
 
-          <Cart />
+          <div className="cart-icon-container">
+            <button
+              className="cart-btn"
+              onClick={showCartModal ? closeCartModal : openCartModal}
+            >
+              <FaCartShopping />
+              <span className="cart-item-count">0</span>
+            </button>
+          </div>
 
           <img src={avatar} alt="avatar" className="avatar" />
         </nav>
