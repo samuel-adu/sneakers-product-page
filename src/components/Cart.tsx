@@ -3,9 +3,10 @@ import CartItem from './CartItem';
 import { useCartContext } from '@/hooks/useCartContext';
 
 function Cart() {
-  const { cartItems, closeCartModal } = useCartContext();
+  const { cartItems, closeCartModal, clearCart } = useCartContext();
 
   function handleCheckout() {
+    clearCart();
     closeCartModal();
   }
 

@@ -5,6 +5,7 @@ import hamburger from '../assets/icons/icon-menu.svg';
 import menuClose from '../assets/icons/icon-close.svg';
 import avatar from '../assets/images/image-avatar.png';
 import { FaCartShopping } from 'react-icons/fa6';
+import { useCartContext } from '@/hooks/useCartContext';
 
 type HeaderProps = {
   showCartModal: boolean;
@@ -13,6 +14,8 @@ type HeaderProps = {
 };
 
 function Header({ showCartModal, closeCartModal, openCartModal }: HeaderProps) {
+  const { cartCount } = useCartContext();
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -63,7 +66,9 @@ function Header({ showCartModal, closeCartModal, openCartModal }: HeaderProps) {
               onClick={showCartModal ? closeCartModal : openCartModal}
             >
               <FaCartShopping />
-              <span className="cart-item-count">0</span>
+              {cartCount > 0 && (
+                <span className="cart-item-count">{cartCount}</span>
+              )}
             </button>
           </div>
 
