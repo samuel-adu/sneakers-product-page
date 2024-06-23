@@ -72,12 +72,6 @@ function CartContextProvider({ children }: CartContextProviderProps) {
     [cartItems]
   );
 
-  // let total = 0;
-  // if (cartItems) {
-  //   cartItems.forEach((item) => (total = total += item.quantity));
-  //   return total;
-  // }
-
   return (
     <CartContext.Provider
       value={{
