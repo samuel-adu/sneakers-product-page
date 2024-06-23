@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import CartItem from '@/components/CartItem';
 
 type CartContextType = {
@@ -8,6 +8,8 @@ type CartContextType = {
   showCartModal: boolean;
   openCartModal: () => void;
   closeCartModal: () => void;
+  cartCount: number;
+  clearCart: () => void;
 };
 
 type CartContextProviderProps = {
@@ -61,11 +63,14 @@ function CartContextProvider({ children }: CartContextProviderProps) {
     );
   }
 
-  // let total = 0;
-  // if (cartItems) {
-  //   cartItems.forEach((item) => (total = total += item.quantity));
-  //   return total;
-  // }
+  function clearCart() {
+    setCartItems([]);
+  }
+
+  const cartCount = useMemo(
+    () => cartItems.reduce((count, item) => count + item.quantity, 0),
+    [cartItems]
+  );
 
   return (
     <CartContext.Provider
@@ -76,6 +81,8 @@ function CartContextProvider({ children }: CartContextProviderProps) {
         cartItems,
         addToCart,
         removeFromCart,
+        clearCart,
+        cartCount,
       }}
     >
       {children}

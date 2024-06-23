@@ -1,3 +1,4 @@
+import ReactDom from 'react-dom';
 import Cart from './Cart';
 
 type CartModalProps = {
@@ -7,7 +8,7 @@ type CartModalProps = {
 
 function CartModal({ isOpen, onClose }: CartModalProps) {
   if (!isOpen) return null;
-  return (
+  return ReactDom.createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div
         onClick={(event) => event.stopPropagation()}
@@ -20,7 +21,8 @@ function CartModal({ isOpen, onClose }: CartModalProps) {
           <Cart />
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById('portal') as Element
   );
 }
 

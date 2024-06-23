@@ -3,15 +3,18 @@ import CartItem from './CartItem';
 import { useCartContext } from '@/hooks/useCartContext';
 
 function Cart() {
-  const { cartItems, closeCartModal } = useCartContext();
+  const { cartItems, closeCartModal, clearCart } = useCartContext();
 
   function handleCheckout() {
+    clearCart();
     closeCartModal();
   }
 
   if (cartItems.length < 1) {
     return (
-      <p className="font-bold base-text text-center">Your cart is empty.</p>
+      <div className="cart-main">
+        <p className="font-bold base-text text-center">Your cart is empty.</p>
+      </div>
     );
   }
 
