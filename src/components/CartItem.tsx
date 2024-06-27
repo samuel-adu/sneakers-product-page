@@ -1,5 +1,6 @@
 import { FaTrashCan } from 'react-icons/fa6';
 import { useCartContext } from '@/hooks/useCartContext';
+import toast from 'react-hot-toast';
 
 type CartItemProps = {
   item: {
@@ -13,6 +14,11 @@ type CartItemProps = {
 
 function CartItem({ item }: CartItemProps) {
   const { removeFromCart } = useCartContext();
+
+  function deleteItemFromCart() {
+    removeFromCart(item.id);
+    toast.error('item removed from cart');
+  }
 
   return (
     <div className="cart-item flex items-center justify-between gap-4 w-full">
@@ -30,7 +36,7 @@ function CartItem({ item }: CartItemProps) {
         </div>
       </div>
 
-      <button className="" onClick={() => removeFromCart(item.id)}>
+      <button className="delete-btn" onClick={deleteItemFromCart}>
         <FaTrashCan />
       </button>
     </div>

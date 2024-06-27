@@ -66,9 +66,9 @@ function Header({ showCartModal, closeCartModal, openCartModal }: HeaderProps) {
               onClick={showCartModal ? closeCartModal : openCartModal}
             >
               <FaCartShopping />
-              {cartCount > 0 && (
+              {cartCount ? (
                 <span className="cart-item-count">{cartCount}</span>
-              )}
+              ) : null}
             </button>
           </div>
 

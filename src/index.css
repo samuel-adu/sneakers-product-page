@@ -73,7 +73,17 @@ img {
 }
 
 .btn--secondary:hover {
-  color: var(--clr-primary-100);
+  color: var(--clr-primary-400);
+  opacity: 0.5;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.delete-btn {
+  color: var(--clr-secondary-400);
 }
 
 .base-text {
