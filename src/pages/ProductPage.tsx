@@ -5,10 +5,11 @@ import { useState } from 'react';
 import Lightbox from '@/components/Lightbox';
 import ImageSlider from '@/components/ImageSlider';
 import { product } from '../data';
+import toast from 'react-hot-toast';
 
 function ProductPage() {
   const { addToCart } = useCartContext();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   function openLightbox() {
@@ -28,6 +29,7 @@ function ProductPage() {
         image: product.cartImage,
         quantity: quantity,
       });
+      toast.success('item added to cart');
     }
   }
 
@@ -71,10 +73,12 @@ function ProductPage() {
               <div className="quantity-tab lg:w-2/5">
                 <button
                   onClick={() =>
-                    quantity > 0 &&
+                    quantity > 1 &&
                     setQuantity((prevQuanity) => prevQuanity - 1)
                   }
-                  className="btn btn--secondary"
+                  className={`btn btn--secondary ${
+                    quantity === 1 ? 'disabled' : ''
+                  }`}
                 >
                   <FaMinus className="" />
                 </button>
