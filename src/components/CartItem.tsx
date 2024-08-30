@@ -36,7 +36,11 @@ function CartItem({ item }: CartItemProps) {
         </div>
       </div>
 
-      <button className="delete-btn" onClick={deleteItemFromCart}>
+      <button
+        aria-label="delete item"
+        className="delete-btn"
+        onClick={deleteItemFromCart}
+      >
         <FaTrashCan />
       </button>
     </div>

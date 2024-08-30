@@ -22,7 +22,11 @@ function Header({ showCartModal, closeCartModal, openCartModal }: HeaderProps) {
     <header className="header">
       <div className="container">
         <nav className="nav">
-          <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+          <button
+            aria-label="menu toggle"
+            className="menu-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             {menuOpen ? (
               <img src={menuClose} alt="menu close button" />
             ) : (
@@ -62,6 +66,7 @@ function Header({ showCartModal, closeCartModal, openCartModal }: HeaderProps) {
 
           <div className="cart-icon-container">
             <button
+              aria-label="open cart"
               className="cart-btn"
               onClick={showCartModal ? closeCartModal : openCartModal}
             >
