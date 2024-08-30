@@ -72,6 +72,7 @@ function ProductPage() {
             <div className="flex flex-col lg:flex-row gap-4 justify-between">
               <div className="quantity-tab lg:w-2/5">
                 <button
+                  aria-label="decrease item quantity"
                   onClick={() =>
                     quantity > 1 &&
                     setQuantity((prevQuanity) => prevQuanity - 1)
@@ -86,6 +87,7 @@ function ProductPage() {
                 <p className="count text-xl">{quantity}</p>
 
                 <button
+                  aria-label="increase item quantity"
                   onClick={() => setQuantity((prevQuanity) => prevQuanity + 1)}
                   className="btn btn--secondary"
                 >
